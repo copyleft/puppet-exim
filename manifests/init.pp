@@ -36,9 +36,9 @@ class exim (
   }
 
   # Parameter validation
-  if ! $mail_relay {
-    fail('exim: mail_relay parameter must not be empty')
-  }
+  #if ! $mail_relay {
+  #  fail('exim: mail_relay parameter must not be empty')
+  #}
 
   Class['exim::install'] -> Class['exim::config']
 
