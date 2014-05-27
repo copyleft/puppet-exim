@@ -1,9 +1,9 @@
 class exim::config {
 
-  exec { 'exim_aliases':
-    command     => 'invoke-rc.d exim4 reload',
-    refreshonly => true,
-  }
+  #exec { 'exim_aliases':
+  #  command     => 'invoke-rc.d exim4 reload',
+  #  refreshonly => true,
+  #}
 
   exec { 'exim_update':
     command     => 'update-exim4.conf',
