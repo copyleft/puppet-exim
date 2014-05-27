@@ -22,6 +22,7 @@
 # Sergey Stankevich
 #
 class exim (
+  $update_aliases = false,
   $mail_relay = false,
   $root_email = "root@${::domain}",
   $dc_eximconfig_configtype = 'internet',

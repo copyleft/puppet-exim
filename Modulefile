@@ -1,5 +1,5 @@
 name         'puppet-exim'
-version      '1.0.0'
+version      '1.0.1'
 
 author       'Sergey Stankevich'
 license      'Apache License, Version 2.0'

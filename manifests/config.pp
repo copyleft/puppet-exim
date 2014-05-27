@@ -1,9 +1,18 @@
 class exim::config {
 
-  #exec { 'exim_aliases':
-  #  command     => 'invoke-rc.d exim4 reload',
-  #  refreshonly => true,
-  #}
+  if $update_aliases {
+    exec { 'exim_aliases':
+      command     => 'invoke-rc.d exim4 reload',
+      refreshonly => true,
+    }
+
+    file {
+      '/etc/aliases':
+        content => template('exim/aliases.erb'),
+        notify  => Exec['exim_aliases'],
+        require => File['/etc/exim4/update-exim4.conf.conf'];
+    }
+  }
 
   exec { 'exim_update':
     command     => '/usr/sbin/update-exim4.conf',
@@ -23,10 +32,6 @@ class exim::config {
       content => template('exim/mailname.erb');
     '/etc/exim4/update-exim4.conf.conf':
       content => template('exim/update-exim4.conf.conf.erb');
-    #'/etc/aliases':
-    #  content => template('exim/aliases.erb'),
-    #  notify  => Exec['exim_aliases'],
-    #  require => File['/etc/exim4/update-exim4.conf.conf'];
   }
 
 }
