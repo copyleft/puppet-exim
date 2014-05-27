@@ -1,5 +1,6 @@
 class exim::install {
 
-  #package { 'exim4': ensure => present }
-
+  if ! Package['exim'] {
+    package { 'exim4': ensure => present }
+  }
 }
