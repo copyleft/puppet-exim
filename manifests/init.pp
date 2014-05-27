@@ -23,7 +23,10 @@
 #
 class exim (
   $mail_relay = false,
-  $root_email = "root@${::domain}"
+  $root_email = "root@${::domain}",
+  $dc_eximconfig_configtype = 'internet',
+  $dc_local_interfaces ='127.0.0.1  ; ::1',
+  $dc_relay_nets = '',
 ) {
 
   # Module compatibility check
