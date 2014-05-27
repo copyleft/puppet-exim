@@ -6,7 +6,7 @@ class exim::config {
   #}
 
   exec { 'exim_update':
-    command     => 'update-exim4.conf',
+    command     => '/usr/sbin/update-exim4.conf',
     refreshonly => true,
   }
 
