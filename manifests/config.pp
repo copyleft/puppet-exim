@@ -1,6 +1,6 @@
 class exim::config {
 
-  if $update_aliases {
+  if $exim::update_aliases {
     exec { 'exim_aliases':
       command     => 'systemctl reload exim4',
       refreshonly => true,
