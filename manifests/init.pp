@@ -31,6 +31,8 @@ class exim (
   $dc_smarthost = '',
   $dc_hide_mailname = 'true'
 ) {
+  contain exim::install
+  contain exim::config
 
   # Module compatibility check
   $compatible = [ 'Debian', 'Ubuntu' ]
@@ -43,7 +45,7 @@ class exim (
   #  fail('exim: mail_relay parameter must not be empty')
   #}
 
-  Class['exim::install'] -> Class['exim::config']
+  Class['::exim::install'] -> Class['::exim::config']
 
   include exim::install
   include exim::config

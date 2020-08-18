@@ -2,7 +2,7 @@ class exim::config {
 
   if $update_aliases {
     exec { 'exim_aliases':
-      command     => 'invoke-rc.d exim4 reload',
+      command     => 'systemctl reload exim4',
       refreshonly => true,
     }
 
